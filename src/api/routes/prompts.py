@@ -1,5 +1,7 @@
 from fastapi import APIRouter
 from pydantic import BaseModel, Field
+from src.schemas.prompts import PromptCreate
+
 
 router = APIRouter(prefix="/prompts", tags=["prompts"])
 
@@ -7,11 +9,11 @@ router = APIRouter(prefix="/prompts", tags=["prompts"])
 _PROMPTS = []
 _NEXT_ID = 1
 
-
+'''
 class PromptCreate(BaseModel):
     title: str = Field(min_length=1, max_length=120)
     content: str = Field(min_length=1, max_length=10000)
-
+'''
 
 @router.get("")
 def list_prompts():

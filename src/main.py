@@ -1,7 +1,6 @@
 from fastapi import FastAPI
+from src.api.routes.health import router as health_router
 
 app = FastAPI(title="Prompt Library API")
 
-@app.get("/health")
-def health():
-    return {"data": {"status": "ok"}, "error": None}
+app.include_router(health_router)
